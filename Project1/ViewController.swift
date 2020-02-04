@@ -26,10 +26,18 @@ class ViewController: UITableViewController {
         for item in items{
             pictures.append(item)
         }
-    
         
     }
-
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { //rows in one section
+        return pictures.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
+        cell.textLabel?.text = pictures[indexPath.row]
+        return cell
+    }
 
 }
 
