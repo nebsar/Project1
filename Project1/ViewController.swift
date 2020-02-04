@@ -24,7 +24,9 @@ class ViewController: UITableViewController {
         let items = try! fm.contentsOfDirectory(atPath: path)
         
         for item in items{
-            pictures.append(item)
+            if item.hasPrefix("nssl"){
+                pictures.append(item)
+            }
         }
         
     }
