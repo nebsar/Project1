@@ -8,11 +8,26 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
+    
+   var pictures = [String]()
+    
+    //or var pictures: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let fm = FileManager.default
+        
+        let path = Bundle.main.resourcePath!
+        
+        let items = try! fm.contentsOfDirectory(atPath: path)
+        
+        for item in items{
+            pictures.append(item)
+        }
+    
+        
     }
 
 
